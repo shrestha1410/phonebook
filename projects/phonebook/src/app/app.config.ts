@@ -6,6 +6,7 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import {InjectionToken} from "@angular/core";
 import { environment } from '../environments/environment.development';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 export const APP_SERVICE_CONFIG= new InjectionToken("appConfig");
 export const APP_CONFIG={
   apiEndpoimt:environment.apiEndpoint

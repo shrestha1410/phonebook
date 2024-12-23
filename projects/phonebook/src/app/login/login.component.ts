@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { LoginService } from './login.service';
 import { loginRequest } from './loginRequest';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
+  standalone:true
 })
 export class LoginComponent {
   title = 'PhoneBook';
