@@ -1,30 +1,50 @@
 <html>
-    <head>
-        <title>Login</title>
-    </head>
-    <style>
-     body{
-        background-image: url(/projects/phonebook//public/assets/gif.jpg);
-     }
-    </style>
-    <body>
-      <form>
-        <h1>REGISTER</h1>
-        <label>FirstName</label>
-        <input type="text" placeholder="firstName" id="firstName" >
-        <label>LastName</label>
-        <input type="text" placeholder="lastName" id="lastName" >
-        <label>MobileNumber</label>
-        <input type="text" placeholder="mobileNumber" id="mobileNumber" >
-        <label>Address Line1</label>
-        <input type="text" placeholder="addressLine1" id="addressLine1" >
-        <label>Address Line2</label>
-        <input type="text" placeholder="addressLine2" id="addressLine1" >
-        <label>Password</label>
-        <input type="password" placeholder="password" id="password" >
-        <label>ReType Password</label>
-        <input type="password" placeholder="password" id="password" >
-        <input type="button" placeholder="Register" >
-      </form>
-    </body>
+  <head>
+    <title>REGISTER</title>
+  </head>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .profile {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+  <body>
+    <form (ngSubmit)="register()">
+      <div class="container">
+        <div class="container1">
+          <img
+            src="\assets\profile.webp"
+            class="profile"
+            alt="Profile Image"
+          /><br />
+          <button type="button" (click)="navigateToLogin()">LOGIN</button>
+        </div>
+        <div class="container2">
+          <h1>REGISTER</h1>
+          <label>FirstName</label><br>
+          <input type="text" placeholder="firstName" id="firstName" /><br>
+          <label>LastName</label><br>
+          <input type="text" placeholder="lastName" id="lastName" /><br>
+          <label>MobileNumber</label><br>
+          <input type="text" placeholder="mobileNumber" id="mobileNumber" /><br>
+          <label>Address Line1</label><br>
+          <input type="text" placeholder="addressLine1" id="addressLine1" /><br>
+          <label>Address Line2</label><br>
+          <input type="text" placeholder="addressLine2" id="addressLine1" /><br>
+          <label>Password</label><br>
+          <input type="password" placeholder="password" id="password" /><br>
+          <label>ReType Password</label><br>
+          <input type="password" placeholder="password" id="password" /><br>
+          <button type="button">Register</button>
+        </div>
+      </div>
+    </form>
+  </body>
 </html>
