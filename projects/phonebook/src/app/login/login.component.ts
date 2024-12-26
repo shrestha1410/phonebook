@@ -8,10 +8,7 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
-<<<<<<< HEAD
-=======
   standalone:true
->>>>>>> 7ee3d2526f078a412c9101c4b97bf8857f6b911a
 })
 export class LoginComponent {
   title = 'PhoneBook';

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import { FormsModule } from '@angular/forms';
->>>>>>> 7ee3d2526f078a412c9101c4b97bf8857f6b911a
 import { RegisterRequest } from './RegisterRequest';
 import { RegisterService } from './register.service';
 import { Component } from '@angular/core';
@@ -12,10 +9,7 @@ import { Router } from '@angular/router';
   imports: [FormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
-<<<<<<< HEAD
-=======
-  standalone: true
->>>>>>> 7ee3d2526f078a412c9101c4b97bf8857f6b911a
+  standalone:true
 })
 export class RegisterComponent {
   firstName: string = '';
