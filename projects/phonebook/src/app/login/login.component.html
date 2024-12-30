@@ -17,7 +17,7 @@
     </head>
     <body>
         <div>
-            <form (ngSubmit)="login()">
+            <form>
                 <div class="container">
                     <div class="container1">
                         <img src="\assets\profile.webp" class="profile" alt="Profile Image"><br>
@@ -26,16 +26,10 @@
                     <div class="container2">
                         <h1>LOGIN</h1>
                         <label for="mobilenumber">Mobile Number</label><br>
-<<<<<<< HEAD
-                        <input type="text" placeholder="mobileNumber" id="mobilenumber"><br>
-                        <label for="password">Password</label><br>
-                        <input type="password" placeholder="password" id="password"><br>
-=======
-                        <input type="text" placeholder="mobileNumber" id="mobilenumber"name="mobilenumber" [(ngModel)]="mobileNumber"><br>
+                        <input type="text" placeholder="mobileNumber" id="mobileNumber"name="mobileNumber" [(ngModel)]="mobileNumber"><br>
                         <label for="password">Password</label><br>
                         <input type="password" placeholder="password" id="password" name="password" [(ngModel)]="password"><br>
->>>>>>> 7ee3d2526f078a412c9101c4b97bf8857f6b911a
-                        <button type="submit">Login</button>
+                        <button type="submit" (click)="login()">Login</button>
                     </div>
                 </div>
             </form>

@@ -21,8 +21,14 @@ export class LoginComponent {
       password: this.password,
     };
     this.loginService.login(loginRequest).subscribe((response) => {
-      alert('Login successfull');
-      this.router.navigate(['/home']);
+      console.log("Login started------------------------>");
+      if(response){
+        alert('Login successfull');
+        this.router.navigate(['/home']);
+      }else{
+        alert('Login failed');
+      }
+
     });
   }
   naviagtiontoRegister() {
