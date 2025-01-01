@@ -3,6 +3,7 @@ import { LoginService } from './login.service';
 import { loginRequest } from './loginRequest';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   imports: [FormsModule],
@@ -20,11 +21,16 @@ export class LoginComponent {
       mobileNumber: this.mobileNumber,
       password: this.password,
     };
+      const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          "access-control-allow-origin": "*",
+        });
     this.loginService.login(loginRequest).subscribe((response) => {
       console.log("Login started------------------------>");
       if(response){
         alert('Login successfull');
-        this.router.navigate(['/home']);
+        headers.append('Authorization', 'Bearer ' + response);
+        this.router.navigate(['/familyandfriends',headers]);
       }else{
         alert('Login failed');
       }

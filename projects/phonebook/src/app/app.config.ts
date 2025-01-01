@@ -5,7 +5,8 @@ import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import {InjectionToken} from "@angular/core";
 import { environment } from '../environments/environment.development';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withFetch } from '@angular/common/http';
+import { AuthInterceptor } from './auth-interceptor';
 export const APP_SERVICE_CONFIG= new InjectionToken("appConfig");
 export const APP_CONFIG={
   apiEndpoimt:environment.apiEndpoint
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
     ]
 };
