@@ -4,21 +4,17 @@ import { loginRequest } from './loginRequest';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
+import { LoginResponse } from './loginResponse';
+import { GetDetails } from './getDetails';
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService{
   constructor(private http:HttpClient,private router:Router) { }
 
-  login(loginrequest:loginRequest):Observable<boolean>{
+  login(loginrequest:loginRequest):Observable<LoginResponse>{
     console.log(loginrequest);
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      "access-control-allow-origin": "*",
-    });
-
-    return this.http.post<boolean>(`${environment.apiEndpoint}/login/`, loginrequest, {
-      headers: headers,
-    });
+    return this.http.post<LoginResponse>(`${environment.apiEndpoint}/login/`, loginrequest);
   }
   }

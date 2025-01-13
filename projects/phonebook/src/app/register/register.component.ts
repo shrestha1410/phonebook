@@ -3,10 +3,11 @@ import { RegisterRequest } from './RegisterRequest';
 import { RegisterService } from './register.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-register',
-  imports: [FormsModule],
+  imports: [FormsModule,MatButtonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
   standalone:true

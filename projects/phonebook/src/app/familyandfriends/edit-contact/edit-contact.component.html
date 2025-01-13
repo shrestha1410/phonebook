@@ -1,1 +1,37 @@
-<p>edit-contact works!</p>
+<html>
+  <head>
+    <title>
+      Edit Contacts
+    </title>
+    <style>
+  .container {
+                margin-top: 20px;
+                text-align: center;
+                background-color: plum;
+                padding: 20px;
+                margin-left: 300px;
+                margin-right: 300px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+    </style>
+  </head>
+  <body>
+      <div class="container">
+        <form>
+          <h1>EDIT CONTACT</h1>
+          <label>FirstName</label> <br>
+          <input type="text" placeholder="firstName" name="firstName" [(ngModel)]="existingContact.firstName"><br>
+          <label>LastName</label> <br>
+          <input type="text" placeholder="lastName" name="lastName" [(ngModel)]="existingContact.lastName"><br>
+          <label>MobileNumber</label> <br>
+          <input type="text" placeholder="mobileNumber" name="mobileNumber" [(ngModel)]="existingContact.mobileNumber"><br>
+          <label>Address Line1</label> <br>
+          <input type="text" placeholder="addressLine1" name="addressLine1" [(ngModel)]="existingContact.addressLine1"><br>
+          <label>Address Line2</label> <br>
+          <input type="text" placeholder="addressLine2" name="addressLine2" [(ngModel)]="existingContact.addressLine2"><br><br>
+          <button mat-flat-button style="background-color: purple" type="button" (click)="updateContact()">updateContact</button>
+        </form>
+      </div>
+  </body>
+</html>

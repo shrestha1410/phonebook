@@ -1,1 +1,40 @@
-<p>add-new-contact works!</p>
+<html>
+    <head>
+        <title>FamilyAndFriends</title>
+        <style>
+            .container {
+                margin-top: 20px;
+                text-align: center;
+                background-color: plum;
+                padding: 20px;
+                margin-left: 300px;
+                margin-right: 300px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form>
+                    <div class="container" >
+                     <h1>New Contact</h1>
+                    <form>
+                      <label>FirctName</label><br>
+                      <input type="text" name="firstName" placeholder="firstName"  id="firstName" [(ngModel)]="firstName"><br>
+                      <label>LastName</label><br>
+                      <input type="text"  name="lastName"placeholder="lastName" id="lastName" [(ngModel)]="lastName"><br>
+                      <label>MobileNumber</label><br>
+                      <input type="text"  name="mobileNumber" placeholder="mobileNumber" id="mobileNumber" [(ngModel)]="mobileNumber"><br>
+                      <label>Address Line1</label><br>
+                      <input type="text"  name="addressLine1" placeholder="addressLine1" id="addressLine1" [(ngModel)]="addressLine1"><br>
+                      <label>Address Line2</label><br>
+                      <input type="text"  name="addressLine2" placeholder="addrssLine2" id="addressLine2" [(ngModel)]="addressLine2"><br>
+                      <button mat-flat-button style="background-color: purple" type="submit" (click)="saveNewContact()">Save</button>
+                    </form>
+                    </div>
+            </form>
+        </div>
+    </body>
+</html>

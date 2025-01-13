@@ -12,30 +12,50 @@
             background-size: cover;
             height: 100vh;
             margin: 0;
-            display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .container1 {
             background-color: plum;
-            max-width: 600px;
-            width: 90%;
+            /* max-width: 600px; */
+            /* width: 90%; */
             margin: 20px;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            align-items: center;
+            justify-content: center;
         }
 
         h1 {
-            color: purple;
-            text-align: center;
+          margin-left: 20px;
+          margin-top: 50px;
+          color: purple;
         }
+       .header{
+          background-color: plum;
+        }
+      .profile{
+        height: 50px;
+        width: 50px;
+      }
+      .profileContainer{
+        margin-left: 1275px;
+        margin-top: -50px;
+      }
     </style>
 </head>
 <body>
-    <div class="container1">
-        <h1>{{title}}</h1>
+  <div class="header">
+     <div>
+      <h1>{{title}}</h1>
+     </div>
+     <div class="profileContainer">
+       <img class="profile" src="/assets/profile.webp" alt="profile">
+     </div>
+  </div>
+    <div>
         <router-outlet></router-outlet>
     </div>
 </body>

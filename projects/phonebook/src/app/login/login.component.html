@@ -3,36 +3,28 @@
         <title>Login</title>
         <style>
             .container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
                 margin-top: 20px;
-            }
-            .profile {
-                width: 200px;
-                height: 200px;
-                object-fit: cover;
+                text-align: center;
+                background-color: plum;
+                padding: 20px;
+                margin-left: 300px;
+                margin-right: 300px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
             }
         </style>
     </head>
     <body>
-        <div>
             <form>
                 <div class="container">
-                    <div class="container1">
-                        <img src="\assets\profile.webp" class="profile" alt="Profile Image"><br>
-                        <button type="button"(click)="naviagtiontoRegister()">REGISTER</button>
-                    </div>
-                    <div class="container2">
-                        <h1>LOGIN</h1>
-                        <label for="mobilenumber">Mobile Number</label><br>
-                        <input type="text" placeholder="mobileNumber" id="mobileNumber"name="mobileNumber" [(ngModel)]="mobileNumber"><br>
-                        <label for="password">Password</label><br>
-                        <input type="password" placeholder="password" id="password" name="password" [(ngModel)]="password"><br>
-                        <button type="submit" (click)="login()">Login</button>
-                    </div>
-                </div>
+                   <h1>LOGIN</h1>
+                     <label for="mobilenumber">Mobile Number</label><br>
+                     <input type="text" placeholder="mobileNumber" id="mobileNumber"name="mobileNumber" [(ngModel)]="mobileNumber"><br>
+                     <label for="password">Password</label><br>
+                     <input type="password" placeholder="password" id="password" name="password" [(ngModel)]="password"><br><br>
+                     <button mat-flat-button style="background-color: purple" type="submit" (click)="login()">Login</button>
+              </div>
             </form>
-        </div>
     </body>
 </html>

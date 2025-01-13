@@ -1,19 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { LoginService } from './login.service';
 import { loginRequest } from './loginRequest';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpHeaders } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 @Component({
-  selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule,MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
-  standalone:true
+  standalone:true,
 })
 export class LoginComponent {
   title = 'PhoneBook';
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService,
+              private router: Router) {}
   mobileNumber: number = 0;
   password: string = '';
   login() {
@@ -21,16 +23,14 @@ export class LoginComponent {
       mobileNumber: this.mobileNumber,
       password: this.password,
     };
-      const headers = new HttpHeaders({
-          'Content-Type': 'application/json',
-          "access-control-allow-origin": "*",
-        });
     this.loginService.login(loginRequest).subscribe((response) => {
       console.log("Login started------------------------>");
-      if(response){
+      if(response && response.token){
+        localStorage.setItem('token',response.token);
+        localStorage.setItem('mobileNumber',this.mobileNumber.toString());
+        console.log(response)
         alert('Login successfull');
-        headers.append('Authorization', 'Bearer ' + response);
-        this.router.navigate(['/familyandfriends',headers]);
+        this.router.navigate(['/familyandfriends/getListOfContact']);
       }else{
         alert('Login failed');
       }
@@ -40,4 +40,9 @@ export class LoginComponent {
   naviagtiontoRegister() {
     this.router.navigate(['/register']);
   }
+    hide = signal(true);
+    clickEvent(event: MouseEvent) {
+      this.hide.set(!this.hide());
+      event.stopPropagation();
+    }
 }

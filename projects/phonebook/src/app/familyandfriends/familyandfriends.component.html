@@ -16,28 +16,6 @@
         </style>
     </head>
     <body>
-        <div>
-            <form>
-                <div class="container">
-                    <div class="container1">
-                        <img src="\assets\profile.webp" class="profile" alt="Profile Image"><br>
-                        <button type="button"(click)="addNewContact()">REGISTER</button>
-                    </div>
-                    <div class="container2" >
-                        <h1>CONTACTS</h1>
-                    <table >
-                      <thead>
-                        <tr>ContactName</tr>
-                        <tr>COntactNumber</tr>
-                      </thead>
-                      <tbody>
-                        <td><button type="submit" (click)="editContact()">Edit</button></td>
-                        <td> <button type="submit" (click)="deleteContact()">Delete</button></td>
-                      </tbody>
-                    </table>
-                    </div>
-                </div>
-            </form>
-        </div>
+        <router-outlet></router-outlet>
     </body>
 </html>
