@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Contacts</title>
+        <style>
+             .container {
+                margin-top: 20px;
+                text-align: center;
+                background-color: plum;
+                padding: 20px;
+                margin-left: 300px;
+                margin-right: 300px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form>
+                    <div class="container" >
+                        <h1>PLANS</h1>
+                        <div *ngFor="let item of list">
+                          <button mat-flat-button style="background-color: purple " type="button" (click)="showPlan(item)">{{item.planMane}} <br> {{item.amount}}</button><br>
+                          <br>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </body>
+</html>

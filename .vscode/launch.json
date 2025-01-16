@@ -3,6 +3,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "PhonebookApplication",
+      "request": "launch",
+      "mainClass": "com.phoneBook.PhonebookApplication",
+      "projectName": "phonebook"
+    },
+    {
       "name": "ng serve",
       "type": "chrome",
       "request": "launch",
