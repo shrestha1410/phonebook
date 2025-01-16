@@ -14,6 +14,6 @@ export class PlansService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return this.http.get<Plans>(`${environment.apiEndpoint}/plans`,{headers});
+    return this.http.get<Plans>(`${environment.apiEndpoint}/plans/`,{headers});
   }
 }

@@ -15,9 +15,7 @@ export class AppComponent {
   constructor(private http:HttpClient,private route:Router){}
   title = 'Phonebook';
   logout() {
-    // Implement your logout logic here
-    console.log('User  logged out');
-    // For example, you might want to clear user data and redirect to the login page
+  this. route.navigateByUrl("/logout")
   }
   goToProfile(){
    this.route.navigateByUrl("/")
