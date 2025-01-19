@@ -28,6 +28,7 @@ export class LoginComponent {
       if(response && response.token){
         localStorage.setItem('token',response.token);
         localStorage.setItem('mobileNumber',this.mobileNumber.toString());
+        localStorage.setItem('loginUserIs',JSON.stringify(response.loginUserIs))
         console.log(response)
         alert('Login successfull');
         this.router.navigate(['/familyandfriends/getListOfContact']);

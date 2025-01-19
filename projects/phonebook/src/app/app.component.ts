@@ -4,10 +4,10 @@ import { Router, RouterOutlet } from '@angular/router';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule,MatMenuModule,MatButtonModule,MatListModule],
+  imports: [RouterOutlet,FormsModule,MatMenuModule,MatButtonModule,MatListModule,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -17,8 +17,11 @@ export class AppComponent {
   logout() {
   this. route.navigateByUrl("/logout")
   }
+  logIn() {
+    this. route.navigateByUrl("/login")
+    }
   goToProfile(){
-   this.route.navigateByUrl("/")
+   this.route.navigateByUrl("/profile")
   }
   getAllPlans(){
     this.route.navigateByUrl("/plan")
@@ -29,5 +32,7 @@ export class AppComponent {
   addNewContact(){
     this.route.navigateByUrl("/familyandfriends/addNewContact")
   }
-
+  goToProfileOrLogin(){
+    this.route.navigateByUrl("/profile")
+  }
 }

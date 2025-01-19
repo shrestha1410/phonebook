@@ -26,16 +26,16 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            z-index: 1000; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
 
-        h1 {
+       .h1 {
             color: purple;
-            margin: 0; 
-            font-size: 24px; 
+            margin: 0;
+            font-size: 24px;
         }
 
         .profile {
@@ -45,14 +45,14 @@
         }
 
         .arrow-icon {
-            height: 15px; 
-            width: 15px; 
-            cursor: pointer; 
-            margin-left: 5px; 
+            height: 15px;
+            width: 15px;
+            cursor: pointer;
+            margin-left: 5px;
         }
         @media (max-width: 600px) {
-            h1 {
-                font-size: 20px; 
+            .h1 {
+                font-size: 20px;
             }
 
             .profile {
@@ -61,14 +61,14 @@
             }
 
             .arrow-icon {
-                height: 12px; 
-                width: 12px; 
+                height: 12px;
+                width: 12px;
             }
         }
 
         @media (max-width: 400px) {
-            h1 {
-                font-size: 18px; 
+            .h1 {
+                font-size: 18px;
             }
 
             .profile {
@@ -77,19 +77,19 @@
             }
 
             .arrow-icon {
-                height: 10px; 
-                width: 10px; 
+                height: 10px;
+                width: 10px;
             }
         }
         .content {
             padding-top: 70px;
-            width: 100%; 
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1 style="padding-right: 15px;">{{title}}</h1>
+        <button mat-menu-item class ="h1" style="padding-right: 15px;" (click)="goToProfileOrLogin()">{{title}}</button>
         <button mat-menu-item (click)="addNewContact()">Add New Contact</button>
         <button mat-menu-item (click)="listAllContacts()">List All Contacts</button>
         <button mat-menu-item (click)="getAllPlans()">Plans</button>

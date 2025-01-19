@@ -19,8 +19,12 @@
             <form>
                     <div class="container" >
                         <h1>PLANS</h1>
+                        <div * ngIf="loginUserIs.contains('ROLE_ADMIN')">
+                          <button mat-flat-button style="background-color: purple " type="button" (click)="addPlan()"> Add Plan <br></button><br>
+                          <button mat-flat-button style="background-color: purple " type="button" (click)="editPlan()">Edit</button><br>
+                        </div>
                         <div *ngFor="let item of list">
-                          <button mat-flat-button style="background-color: purple " type="button" (click)="showPlan(item)">{{item.planMane}} <br> {{item.amount}}</button><br>
+                          <button mat-flat-button style="background-color: purple " type="button" (click)="showPlan(item)"> {{item.planName}} <br> {{item.amount}} <br></button><br>
                           <br>
                         </div>
                     </div>

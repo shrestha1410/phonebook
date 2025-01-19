@@ -12,19 +12,27 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class PlansComponent implements OnInit{
 constructor(private planService:PlansService){}
- list:any={
+ list:any=[{
    id: 0,
    planName: '',
    amount: 0,
    Subscription: false
- }
+ }];
   ngOnInit(): void {
    this.planService.getAllPlans().subscribe((response)=>{
     console.log(response);
     this.list=response;
    });
   }
+
+  loginUserIs:string[]= JSON.parse(localStorage.getItem('loginUserIs') || '[]');
   showPlan(item:Plans){
 
   }
+  addPlan(){
+
+  }
+   editPlan(){
+
+   }
 }

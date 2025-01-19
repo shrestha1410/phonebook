@@ -2,11 +2,13 @@ import { Plans } from './../plans/Plans';
 import { ProfileService } from './profile.service';
 import { Component, OnInit } from '@angular/core';
 import { ProfileResponse } from './ProfileResponse';
-import { response } from 'express';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
-  imports: [],
+  imports: [MatButtonModule,RouterModule,CommonModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
@@ -39,11 +41,16 @@ export class ProfileComponent implements OnInit{
   ]
 }
   ngOnInit(): void {
-
    this.profileService.getProfile().subscribe((response)=>{
     console.log(response);
     this.list=response;
    });
   }
+  activeTab:string='';
+  setActiveTab(tab:string):void{
+   this.activeTab=tab;
+  }
+  subscribeToPlan(plan:Plans){
 
+  }
 }
