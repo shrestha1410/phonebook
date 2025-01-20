@@ -5,23 +5,18 @@ import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { InjectionToken } from "@angular/core";
 import { environment } from '../environments/environment.development';
-import { HTTP_INTERCEPTORS, provideHttpClient, withFetch } from '@angular/common/http';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { TokenInterceptor } from './TokenInterceptor';
+import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
 export const APP_SERVICE_CONFIG= new InjectionToken("appConfig");
 export const APP_CONFIG={
-  apiEndpoimt:environment.apiEndpoint
+  apiEndpoimt: environment.apiEndpoint
 }
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withFetch()),
+    provideHttpClient(  withFetch(),  withInterceptorsFromDi()),
     {
-      provide:HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi:true
-    }
-    ]
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+    }]
 };

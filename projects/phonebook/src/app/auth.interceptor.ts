@@ -1,22 +1,18 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
-import { catchError, Observable, throwError } from "rxjs";
-import { Injectable, OnInit } from "@angular/core";
-import { jwtDecode } from "jwt-decode";
-import { Router } from "@angular/router";
+import { jwtDecode } from 'jwt-decode';
+import { Injectable } from '@angular/core';
+import {
+  HttpEvent,
+  HttpInterceptor,
+  HttpHandler,
+  HttpRequest,
+  HttpErrorResponse,
+} from '@angular/common/http';
+import { catchError, Observable, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
-export class TokenInterceptor implements HttpInterceptor{
+export class AuthInterceptor implements HttpInterceptor{
   constructor( private router:Router){}
-
-  // intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-  //   const excluededUrls=['/login','/register']
-  //   const isExclued=excluededUrls.some(url=>req.url.includes(url));
-  //   if(isExclued){
-  //     return next.handle(req);
-  //   }
-  //   this.authService.handleTokenExpiration();
-  //   return next.handle(req);
-  // }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('Intercepting request:', req.url);
@@ -32,7 +28,7 @@ export class TokenInterceptor implements HttpInterceptor{
         const currentTime = Math.floor(Date.now() / 1000);
         console.log('Current Time:', currentTime, 'Token Expiry:', decodedToken.exp);
 
-        const excludedUrls = ['/login', '/register'];
+        const excludedUrls = ['/login/', '/register/'];
         const isExcluded = excludedUrls.some((url) => req.url.includes(url));
         if (isExcluded) {
           console.log('URL excluded from token check:', req.url);
@@ -79,3 +75,4 @@ export class TokenInterceptor implements HttpInterceptor{
     });
   }
 }
+

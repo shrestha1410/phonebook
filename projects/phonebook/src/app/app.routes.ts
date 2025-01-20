@@ -6,6 +6,8 @@ import { FamilyandfriendsComponent } from './familyandfriends/familyandfriends.c
 import { PlansComponent } from './plans/plans.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthInterceptor } from './auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },

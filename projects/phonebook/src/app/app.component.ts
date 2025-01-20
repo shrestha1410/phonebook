@@ -4,15 +4,14 @@ import { Router, RouterOutlet } from '@angular/router';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule,MatMenuModule,MatButtonModule,MatListModule,HttpClientModule],
+  imports: [RouterOutlet,FormsModule,MatMenuModule,MatButtonModule,MatListModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(private http:HttpClient,private route:Router){}
+  constructor(private route:Router){}
   title = 'Phonebook';
   logout() {
   this. route.navigateByUrl("/logout")
