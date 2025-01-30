@@ -10,10 +10,8 @@ export class LogoutService {
 
   constructor(private http:HttpClient,private router:Router) { }
   logoutSession(){
-    return this.http.get(`${environment.apiEndpoint}/logout`).subscribe((response)=>{
-      console.log(response);
-      alert("Session LogOut")
-      this.router.navigateByUrl("/login");
-    })
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      return this.router.navigateByUrl("/login");
   }
 }

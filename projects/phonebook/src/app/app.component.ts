@@ -14,10 +14,10 @@ export class AppComponent {
   constructor(private route:Router){}
   title = 'Phonebook';
   logout() {
-  this. route.navigateByUrl("/logout")
+    this.route.navigateByUrl("/logout")
   }
   logIn() {
-    this. route.navigateByUrl("/login")
+    this.route.navigateByUrl("/login")
     }
   goToProfile(){
    this.route.navigateByUrl("/profile")

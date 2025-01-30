@@ -1,15 +1,16 @@
+import { RouterOutlet } from '@angular/router';
 import { LogoutService } from './logout.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-logout',
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './logout.component.html',
   styleUrl: './logout.component.scss'
 })
-export class LogoutComponent {
+export class LogoutComponent implements OnInit{
  constructor(private logoutService:LogoutService){}
- logout(){
-  this.logoutService.logoutSession();
- }
+  ngOnInit(): void {
+    this.logoutService.logoutSession();
+  }
 }
